@@ -382,7 +382,7 @@ export default function HomePage() {
             {/* CTAs */}
             <div className="flex flex-wrap items-center justify-center gap-4 mb-16">
               <Link href="/demo" className="btn-primary text-base px-8 py-3.5">
-                Request a Demo
+                Get Started
                 <ArrowRight className="w-5 h-5" />
               </Link>
               <Link href="/features" className="btn-secondary text-base px-8 py-3.5">
@@ -750,7 +750,7 @@ export default function HomePage() {
 
           <div className="text-center mt-12">
             <Link href="/demo" className="btn-primary text-base px-8 py-3.5">
-              See It in Action — Request a Demo
+              Explore the Platform
               <ArrowRight className="w-5 h-5" />
             </Link>
           </div>

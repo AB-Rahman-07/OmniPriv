@@ -116,9 +116,7 @@ function FeatureSection({
               {title}
             </h2>
             <p className="text-slate-400 text-lg leading-relaxed mb-8">{description}</p>
-            <Link href="/demo" className="btn-primary">
-              Request a Demo <ArrowRight className="w-4 h-4" />
-            </Link>
+
           </div>
           <div className={`grid grid-cols-1 sm:grid-cols-2 gap-4 ${reverse ? "lg:col-start-1 lg:row-start-1" : ""}`}>
             {features.map((f) => (
@@ -154,7 +152,7 @@ export default function FeaturesPage() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link href="/demo" className="btn-primary text-base px-8 py-3.5">
-              Request a Demo <ArrowRight className="w-5 h-5" />
+              Talk to Sales <ArrowRight className="w-5 h-5" />
             </Link>
             <Link href="#comparison" className="btn-secondary text-base px-8 py-3.5">
               Compare Plans

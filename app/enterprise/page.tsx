@@ -166,7 +166,7 @@ export default function EnterprisePage() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link href="/demo" className="btn-primary text-base px-8 py-3.5">
-              Request a Demo <ArrowRight className="w-5 h-5" />
+              Talk to Sales <ArrowRight className="w-5 h-5" />
             </Link>
             <a href="mailto:sales@OmniPriv.com" className="btn-secondary text-base px-8 py-3.5">
               Contact Sales
@@ -191,11 +191,10 @@ export default function EnterprisePage() {
             {plans.map((plan) => (
               <div
                 key={plan.name}
-                className={`relative flex flex-col rounded-2xl border overflow-hidden transition-all duration-300 ${
-                  plan.highlight
+                className={`relative flex flex-col rounded-2xl border overflow-hidden transition-all duration-300 ${plan.highlight
                     ? "border-[#00B8FF]/40 bg-gradient-to-b from-[#00B8FF]/[0.08] to-[#0A1628]/80 shadow-[0_0_40px_rgba(0,184,255,0.15)]"
                     : "border-white/[0.07] bg-[#0A1628]/60"
-                }`}
+                  }`}
               >
                 {plan.badge && (
                   <div className="absolute top-4 right-4 badge-cyan text-[10px]">
@@ -241,11 +240,10 @@ export default function EnterprisePage() {
                 <div className="p-7 border-t border-white/[0.06]">
                   <Link
                     href="/demo"
-                    className={`block text-center py-3 rounded-xl font-semibold text-sm transition-all ${
-                      plan.highlight
+                    className={`block text-center py-3 rounded-xl font-semibold text-sm transition-all ${plan.highlight
                         ? "btn-primary w-full"
                         : "btn-secondary w-full"
-                    }`}
+                      }`}
                   >
                     {plan.name === "Enterprise" ? "Contact Sales" : "Request a Demo"}
                   </Link>
@@ -347,7 +345,7 @@ export default function EnterprisePage() {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link href="/demo" className="btn-primary">
-                    Request a Demo <ArrowRight className="w-4 h-4" />
+                    Schedule a Call <ArrowRight className="w-4 h-4" />
                   </Link>
                   <a href="tel:+18005550199" className="btn-secondary flex items-center gap-2">
                     <Phone className="w-4 h-4" /> Call Sales
