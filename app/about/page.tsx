@@ -86,7 +86,6 @@ const team = [
 ];
 
 const stats = [
-  { value: "2016", label: "Year Founded" },
   { value: "500+", label: "Employees Worldwide" },
   { value: "50+", label: "Countries Served" },
   { value: "3,000+", label: "Enterprise Customers" },
@@ -142,7 +141,7 @@ export default function AboutPage() {
       {/* Stats */}
       <section className="py-14 border-b border-white/[0.04] bg-[#0A1628]/40">
         <div className="container-xl">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
+          <div className="grid grid-cols-3 gap-10">
             {stats.map((s) => (
               <div key={s.label} className="text-center">
                 <div className="stat-number mb-2">{s.value}</div>
@@ -256,22 +255,43 @@ export default function AboutPage() {
 
 
 
-      {/* Investors */}
+      {/* Investors — Scrolling Marquee */}
       <section className="section-padding">
-        <div className="container-xl text-center">
-          <p className="text-sm text-slate-500 uppercase tracking-widest font-medium mb-6">Backed By</p>
-          <div className="flex flex-wrap justify-center gap-4 mb-14">
-            {investors.map((inv) => (
-              <div key={inv} className="px-6 py-3 rounded-xl border border-white/[0.06] bg-[#0A1628]/40 text-slate-300 font-semibold text-sm hover:border-[#00B8FF]/20 transition-all">
-                {inv}
-              </div>
-            ))}
+        <div className="container-xl">
+          <p className="text-center text-sm text-slate-500 uppercase tracking-widest font-medium mb-8">Backed By</p>
+          <div className="marquee-wrapper mb-16">
+            <div className="marquee-track">
+              {[...investors, ...investors, ...investors].map((inv, i) => (
+                <div
+                  key={`${inv}-${i}`}
+                  className="flex-shrink-0 flex items-center gap-3 px-8 py-4 mx-2 rounded-xl border border-white/[0.06] bg-[#0A1628]/40 hover:border-[#00B8FF]/25 transition-all duration-300 group cursor-default select-none"
+                >
+                  <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-[#00B8FF]/20 to-[#0060FF]/10 border border-[#00B8FF]/15 flex items-center justify-center flex-shrink-0">
+                    <Award className="w-4 h-4 text-[#00B8FF]" />
+                  </div>
+                  <span className="text-slate-300 group-hover:text-white text-sm font-semibold tracking-wide transition-colors whitespace-nowrap">
+                    {inv}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
 
-          <p className="text-sm text-slate-500 uppercase tracking-widest font-medium mb-5">Certifications</p>
-          <div className="flex flex-wrap justify-center gap-2">
+          <p className="text-center text-sm text-slate-500 uppercase tracking-widest font-medium mb-8">Certifications &amp; Compliance</p>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {certBadges.map((b) => (
-              <span key={b} className="badge-cyan text-xs">{b}</span>
+              <div
+                key={b}
+                className="relative group p-5 rounded-2xl border border-white/[0.06] bg-gradient-to-b from-[#0A1628]/80 to-[#030711] hover:border-[#00B8FF]/25 transition-all duration-300 text-center"
+              >
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-b from-[#00B8FF]/[0.04] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="relative">
+                  <div className="w-10 h-10 mx-auto mb-3 rounded-xl bg-gradient-to-br from-[#00B8FF]/15 to-[#0060FF]/10 border border-[#00B8FF]/15 flex items-center justify-center">
+                    <Shield className="w-4 h-4 text-[#00B8FF]" />
+                  </div>
+                  <span className="text-sm font-bold text-white tracking-wide">{b}</span>
+                </div>
+              </div>
             ))}
           </div>
         </div>
