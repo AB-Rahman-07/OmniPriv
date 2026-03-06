@@ -347,7 +347,7 @@ export default function HomePage() {
         <div className="absolute top-2/3 right-[20%] w-1 h-1 rounded-full bg-[#00B8FF]/40 animate-pulse" style={{ animationDelay: "1.2s" }} />
         <div className="absolute top-1/2 right-[35%] w-1 h-1 rounded-full bg-sky-400/30 animate-pulse" style={{ animationDelay: "2.4s" }} />
 
-        <div className="container-xl relative z-10 py-24 pb-64 md:pb-72">
+        <div className="container-xl relative z-10 py-16 sm:py-24 pb-24 sm:pb-48 md:pb-64 lg:pb-72">
           <div className="max-w-4xl mx-auto text-center">
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#00B8FF]/25 bg-[#00B8FF]/[0.08] mb-8">
@@ -359,7 +359,7 @@ export default function HomePage() {
 
             {/* Heading */}
             <h1
-              className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-white leading-[1.05] tracking-tight mb-6"
+              className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.1] tracking-tight mb-6"
               style={{ fontFamily: "var(--font-syne)" }}
             >
               Zero-Trust{" "}
@@ -390,8 +390,8 @@ export default function HomePage() {
               </Link>
             </div>
 
-            {/* Protocol tags */}
-            <div className="flex flex-wrap justify-center gap-2 mb-8">
+            {/* Protocol tags — hidden on mobile */}
+            <div className="hidden sm:flex flex-wrap justify-center gap-2 mb-8">
               {protocols.map((p) => (
                 <span
                   key={p.name}
@@ -404,8 +404,8 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Dashboard preview */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-5xl px-6">
+        {/* Dashboard preview — hidden on mobile */}
+        <div className="hidden sm:block absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-5xl px-6">
           <div
             className="relative rounded-t-2xl border border-[#00B8FF]/10 overflow-hidden"
             style={{
