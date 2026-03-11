@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Terms of Service — OmniPriv",
-  description: "OmniPriv Terms of Service — the legal agreement governing your use of our privileged access management platform and website.",
+  title: "Terms of Service | OmniPriv",
+  description: "OmniPriv Terms of Service: the legal agreement governing your use of our privileged access management platform and website.",
 };
 
 const sections = [
@@ -152,7 +152,7 @@ export default function TermsPage() {
   return (
     <>
       {/* Header */}
-      <section className="relative pt-32 pb-16 border-b border-white/[0.04]">
+      <section className="relative pt-16 pb-16 border-b border-white/[0.04]">
         <div className="container-xl max-w-3xl mx-auto">
           <div className="badge-cyan mb-5">Legal</div>
           <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-5" style={{ fontFamily: "var(--font-syne)" }}>

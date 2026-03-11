@@ -6,7 +6,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Enterprise Plans — Pricing & Features",
+  title: "Enterprise Plans: Pricing & Features",
   description:
     "OmniPriv enterprise plans designed for organizations of all sizes. Contact us for custom pricing tailored to your infrastructure scale, compliance needs, and support requirements.",
 };
@@ -113,7 +113,7 @@ const enterpriseFeatures = [
     icon: Server,
     title: "Flexible Deployment",
     description:
-      "Deploy on your infrastructure (on-premises, private cloud, public cloud), in any topology — standalone, active-standby, or full HA cluster.",
+      "Deploy on your infrastructure (on-premises, private cloud, public cloud), in any topology: standalone, active-standby, or full HA cluster.",
   },
   {
     icon: Headphones,
@@ -153,7 +153,7 @@ export default function EnterprisePage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-20 border-b border-white/[0.04] overflow-hidden">
+      <section className="relative pt-16 pb-20 border-b border-white/[0.04] overflow-hidden">
         <div className="absolute inset-0 bg-grid opacity-50" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#030711]" />
         <div className="container-xl relative z-10 text-center">
@@ -162,7 +162,7 @@ export default function EnterprisePage() {
             Secure Your Enterprise with <span className="text-gradient">OmniPriv</span>
           </h1>
           <p className="text-xl text-slate-400 max-w-2xl mx-auto mb-10">
-            OmniPriv is a premium, enterprise-grade PAM solution. All plans include our complete security platform — pricing is tailored to your organization's size, deployment requirements, and support needs.
+            OmniPriv is a premium, enterprise-grade PAM solution. All plans include our complete security platform; pricing is tailored to your organization's size, deployment requirements, and support needs.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link href="/demo" className="btn-primary text-base px-8 py-3.5">
@@ -322,7 +322,7 @@ export default function EnterprisePage() {
                   ))}
                 </div>
                 <p className="text-slate-300 text-sm leading-relaxed mb-4 italic">"{t.quote}"</p>
-                <div className="text-sm font-medium text-slate-400 border-t border-white/[0.05] pt-4">— {t.author}</div>
+                <div className="text-sm font-medium text-slate-400 border-t border-white/[0.05] pt-4">{t.author}</div>
               </div>
             ))}
           </div>
@@ -341,7 +341,7 @@ export default function EnterprisePage() {
                   Let's Build the Right Plan for Your Organization
                 </h2>
                 <p className="text-slate-400 text-lg mb-6">
-                  Our enterprise sales team will analyze your environment, identify the right plan, and provide a custom quote — with no obligation.
+                  Our enterprise sales team will analyze your environment, identify the right plan, and provide a custom quote with no obligation.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link href="/demo" className="btn-primary">

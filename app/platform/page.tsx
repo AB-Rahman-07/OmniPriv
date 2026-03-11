@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { solutions } from "./data";
 
 export const metadata: Metadata = {
-  title: "Platform — Enterprise PAM Capabilities",
+  title: "Platform: Enterprise PAM Capabilities",
   description:
     "Explore OmniPriv's 8 core PAM capabilities: infrastructure deployment, credential management, application security, enterprise integration, session management, workflow access control, audit compliance, and threat detection.",
 };
@@ -13,7 +13,7 @@ export default function SolutionsPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-20 border-b border-white/[0.04] overflow-hidden">
+      <section className="relative pt-16 pb-20 border-b border-white/[0.04] overflow-hidden">
         <div className="absolute inset-0 bg-grid opacity-50" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#030711]" />
         <div className="container-xl relative z-10 text-center">
@@ -25,7 +25,7 @@ export default function SolutionsPage() {
             Enterprise-Grade <span className="text-gradient">PAM Platform</span>
           </h1>
           <p className="text-xl text-slate-400 max-w-2xl mx-auto mb-10">
-            From infrastructure deployment to threat detection — OmniPriv covers every dimension of
+            From infrastructure deployment to threat detection, OmniPriv covers every dimension of
             privileged access management with purpose-built, enterprise-ready capabilities.
           </p>
           <Link href="/demo" className="btn-primary text-base px-8 py-3.5">
@@ -46,7 +46,7 @@ export default function SolutionsPage() {
               8 Pillars of Privileged Access Management
             </h2>
             <p className="text-slate-400 text-lg">
-              Each capability is designed to address a critical dimension of PAM — click to explore
+              Each capability is designed to address a critical dimension of PAM. Click to explore
               the full feature set.
             </p>
           </div>

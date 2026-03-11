@@ -42,8 +42,8 @@ export const metadata: Metadata = {
 /* ─── Data ─────────────────────────────────── */
 
 const stats = [
-  { value: "500,000+", label: "Global Deployments", icon: Globe },
-  { value: "100+", label: "Enterprise Customers", icon: Building2 },
+  { value: "500+", label: "Global Deployments", icon: Globe },
+  { value: "100+", label: "Partners", icon: Building2 },
   { value: "99.99%", label: "Platform Uptime SLA", icon: Activity },
   { value: "250+", label: "Integrations", icon: Zap },
 ];
@@ -322,7 +322,7 @@ export default function HomePage() {
   return (
     <>
       {/* ─── HERO ──────────────────────────────── */}
-      <section className="relative min-h-screen flex items-center pt-[72px] overflow-hidden">
+      <section className="relative min-h-screen flex items-center overflow-hidden">
         {/* Background image — subtle depth layer */}
         <div className="absolute inset-0">
           <Image
@@ -336,18 +336,36 @@ export default function HomePage() {
         {/* Background layers */}
         <div className="absolute inset-0 bg-grid opacity-40" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#030711]/60 via-[#030711]/85 to-[#030711]" />
+        {/* Cyan primary orb */}
         <div
-          className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[600px] rounded-full opacity-[0.08]"
+          className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[600px] rounded-full"
           style={{
-            background: "radial-gradient(ellipse, #00B8FF 0%, transparent 60%)",
+            background: "radial-gradient(ellipse, rgba(0,184,255,0.12) 0%, transparent 65%)",
+          }}
+        />
+        {/* Purple depth orb — top right */}
+        <div
+          className="absolute top-0 right-0 w-[700px] h-[500px]"
+          style={{
+            background: "radial-gradient(ellipse at top right, rgba(124,58,237,0.12) 0%, transparent 65%)",
+          }}
+        />
+        {/* Indigo accent — bottom left */}
+        <div
+          className="absolute bottom-0 left-0 w-[600px] h-[400px]"
+          style={{
+            background: "radial-gradient(ellipse at bottom left, rgba(99,102,241,0.08) 0%, transparent 60%)",
           }}
         />
         {/* Floating accent dots */}
-        <div className="absolute top-1/4 left-[15%] w-1.5 h-1.5 rounded-full bg-[#00B8FF]/60 animate-pulse" />
-        <div className="absolute top-2/3 right-[20%] w-1 h-1 rounded-full bg-[#00B8FF]/40 animate-pulse" style={{ animationDelay: "1.2s" }} />
-        <div className="absolute top-1/2 right-[35%] w-1 h-1 rounded-full bg-sky-400/30 animate-pulse" style={{ animationDelay: "2.4s" }} />
+        <div className="absolute top-1/4 left-[15%] w-1.5 h-1.5 rounded-full bg-[#00B8FF]/70 animate-pulse" />
+        <div className="absolute top-1/3 right-[12%] w-2 h-2 rounded-full bg-violet-400/50 animate-pulse" style={{ animationDelay: "0.8s" }} />
+        <div className="absolute top-2/3 right-[20%] w-1 h-1 rounded-full bg-[#00B8FF]/50 animate-pulse" style={{ animationDelay: "1.2s" }} />
+        <div className="absolute top-1/2 right-[35%] w-1 h-1 rounded-full bg-sky-400/40 animate-pulse" style={{ animationDelay: "2.4s" }} />
+        <div className="absolute bottom-1/3 left-[25%] w-1.5 h-1.5 rounded-full bg-indigo-400/40 animate-pulse" style={{ animationDelay: "1.8s" }} />
+        <div className="absolute top-[60%] left-[8%] w-1 h-1 rounded-full bg-purple-400/30 animate-pulse" style={{ animationDelay: "3s" }} />
 
-        <div className="container-xl relative z-10 py-16 sm:py-24 pb-24 sm:pb-48 md:pb-64 lg:pb-72">
+        <div className="container-xl relative z-10 py-16 sm:py-24">
           <div className="max-w-4xl mx-auto text-center">
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#00B8FF]/25 bg-[#00B8FF]/[0.08] mb-8">
@@ -403,60 +421,20 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-
-        {/* Dashboard preview — hidden on mobile */}
-        <div className="hidden sm:block absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-5xl px-6">
-          <div
-            className="relative rounded-t-2xl border border-[#00B8FF]/10 overflow-hidden"
-            style={{
-              background:
-                "linear-gradient(180deg, rgba(10,22,40,0.95) 0%, rgba(3,7,17,0.8) 100%)",
-            }}
-          >
-            {/* Fake window bar */}
-            <div className="flex items-center gap-2 px-4 py-3 border-b border-white/[0.05]">
-              <div className="code-dot bg-red-500/70" />
-              <div className="code-dot bg-yellow-500/70" />
-              <div className="code-dot bg-green-500/70" />
-              <div className="flex-1 mx-4">
-                <div className="h-5 rounded-md bg-white/[0.04] flex items-center px-3">
-                  <span className="text-xs text-slate-500 font-mono">
-                    https://pam.OmniPriv.com/sessions
-                  </span>
-                </div>
-              </div>
-            </div>
-            {/* Fake dashboard content */}
-            <div className="p-4 md:p-6 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-              {[
-                { label: "Active Sessions", value: "42", color: "text-[#00B8FF]" },
-                { label: "Assets Monitored", value: "8,291", color: "text-emerald-400" },
-                { label: "Alerts Today", value: "3", color: "text-orange-400" },
-                { label: "Compliance Score", value: "98.4%", color: "text-purple-400" },
-              ].map((m) => (
-                <div
-                  key={m.label}
-                  className="rounded-xl p-4 bg-white/[0.03] border border-white/[0.04]"
-                >
-                  <div className={`text-2xl font-bold mb-1 ${m.color}`} style={{ fontFamily: "var(--font-syne)" }}>
-                    {m.value}
-                  </div>
-                  <div className="text-xs text-slate-500">{m.label}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+        {/* Bottom fade line */}
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00B8FF]/30 to-transparent" />
       </section>
 
       {/* ─── STATS ─────────────────────────────── */}
-      <section className="relative py-20 border-y border-white/[0.05] bg-[#0A1628]/40">
+      <section className="relative py-20 border-y border-white/[0.05]" style={{ background: "linear-gradient(180deg, #0A1628 0%, #060d1f 100%)" }}>
         <div className="container-xl">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/[0.04] rounded-2xl overflow-hidden">
-            {stats.map((stat) => (
-              <div key={stat.label} className="text-center group bg-[#030711]/80 px-8 py-10 hover:bg-[#0A1628]/60 transition-colors">
-                <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-[#00B8FF]/[0.1] mb-5 mx-auto group-hover:bg-[#00B8FF]/[0.18] transition-colors">
-                  <stat.icon className="w-4.5 h-4.5 text-[#38bdf8]" style={{ width: "1.125rem", height: "1.125rem" }} />
+          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-white/[0.05] rounded-2xl overflow-hidden border border-white/[0.05]">
+            {stats.map((stat, i) => (
+              <div key={stat.label} className="text-center group px-8 py-10 hover:bg-white/[0.03] transition-colors relative">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-[2px] rounded-b-full bg-gradient-to-r from-[#00B8FF]/0 via-[#00B8FF]/60 to-[#00B8FF]/0 group-hover:via-[#00B8FF] transition-all" />
+                <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl mb-5 mx-auto transition-all"
+                  style={{ background: `linear-gradient(135deg, rgba(0,184,255,0.12) 0%, rgba(${i % 2 ? '99,102,241' : '56,189,248'},0.08) 100%)`, border: '1px solid rgba(0,184,255,0.15)' }}>
+                  <stat.icon className="text-[#38bdf8]" style={{ width: "1.125rem", height: "1.125rem" }} />
                 </div>
                 <div className="stat-number mb-1.5">{stat.value}</div>
                 <div className="text-sm text-slate-500 font-medium tracking-wide">{stat.label}</div>
@@ -469,77 +447,7 @@ export default function HomePage() {
       {/* ─── TECH MARQUEE (SVG logos) ─────────── */}
       <TechMarquee />
 
-      {/* ─── ARCHITECTURE DIAGRAM ────────────────── */}
-      <section className="section-padding-lg">
-        <div className="container-xl">
-          <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="badge-cyan mb-5">Platform Architecture</div>
-            <h2
-              className="text-4xl md:text-5xl font-extrabold text-white mb-5"
-              style={{ fontFamily: "var(--font-syne)" }}
-            >
-              How OmniPriv{" "}
-              <span className="text-gradient">Secures Your Infrastructure</span>
-            </h2>
-            <p className="text-slate-400 text-lg leading-relaxed">
-              OmniPriv sits between your users and your critical IT assets as a zero-trust bastion host,
-              enforcing authentication, authorization, credential management, and full session auditing at every layer.
-            </p>
-          </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* IT Assets & Bastion Host Diagram */}
-            <div className="relative rounded-2xl border border-[#00B8FF]/15 overflow-hidden bg-[#0A1628]/60 hover:border-[#00B8FF]/30 transition-all duration-300 group">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#00B8FF]/[0.04] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="relative p-3">
-                <Image
-                  src="/architecture-diagram.png"
-                  alt="OmniPriv architecture — IT assets connect through the bastion host with authentication, account management, authorization, and audit layers"
-                  width={800}
-                  height={500}
-                  className="w-full h-auto rounded-xl"
-                />
-              </div>
-              <div className="px-6 pb-6">
-                <h3
-                  className="text-lg font-bold text-white mb-2"
-                  style={{ fontFamily: "var(--font-syne)" }}
-                >
-                  Bastion Host Architecture
-                </h3>
-                <p className="text-sm text-slate-400 leading-relaxed">
-                  All privileged access to SSH, Windows, Kubernetes, databases, and remote applications flows through OmniPriv's secure bastion host — no direct connections, ever.
-                </p>
-              </div>
-            </div>
-
-            {/* PAM Platform Overview Diagram */}
-            <div className="relative rounded-2xl border border-[#00B8FF]/15 overflow-hidden bg-[#0A1628]/60 hover:border-[#00B8FF]/30 transition-all duration-300 group">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#00B8FF]/[0.04] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="relative p-3">
-                <Image
-                  src="/platform-overview.png"
-                  alt="OmniPriv PAM platform overview showing the four pillars: Authentication, Authorization, Account Management, and Audit"
-                  width={800}
-                  height={500}
-                  className="w-full h-auto rounded-xl"
-                />
-              </div>
-              <div className="px-6 pb-6">
-                <h3
-                  className="text-lg font-bold text-white mb-2"
-                  style={{ fontFamily: "var(--font-syne)" }}
-                >
-                  The 4A Security Framework
-                </h3>
-                <p className="text-sm text-slate-400 leading-relaxed">
-                  Four integrated pillars — Authentication, Authorization, Account Management, and Audit — provide complete lifecycle coverage for every privileged identity and session.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* ─── FOUR PILLARS ──────────────────────── */}
       <section id="capabilities" className="section-padding-lg">
@@ -645,20 +553,24 @@ export default function HomePage() {
             {features.map((feature) => (
               <div
                 key={feature.title}
-                className="group relative p-6 rounded-2xl border border-white/[0.06] bg-[#0A1628]/50 hover:border-[#00B8FF]/25 hover:bg-[#0A1628]/80 transition-all duration-300 card-shine cursor-default"
+                className="group relative p-6 rounded-2xl border border-white/[0.07] bg-[#0A1628]/40 hover:border-[#00B8FF]/30 hover:bg-[#0A1628]/80 transition-all duration-300 card-shine cursor-default overflow-hidden"
               >
-                <div className="icon-wrapper mb-5">
-                  <feature.icon className="w-5 h-5" />
+                <div className="absolute inset-0 bg-gradient-to-br from-[#00B8FF]/[0.04] via-transparent to-violet-500/[0.03] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#00B8FF]/0 to-transparent group-hover:via-[#00B8FF]/50 transition-all duration-300" />
+                <div className="relative">
+                  <div className="icon-wrapper mb-5">
+                    <feature.icon className="w-5 h-5" />
+                  </div>
+                  <h3
+                    className="text-base font-bold text-white mb-2"
+                    style={{ fontFamily: "var(--font-syne)" }}
+                  >
+                    {feature.title}
+                  </h3>
+                  <p className="text-sm text-slate-400 leading-relaxed">
+                    {feature.description}
+                  </p>
                 </div>
-                <h3
-                  className="text-base font-bold text-white mb-2"
-                  style={{ fontFamily: "var(--font-syne)" }}
-                >
-                  {feature.title}
-                </h3>
-                <p className="text-sm text-slate-400 leading-relaxed">
-                  {feature.description}
-                </p>
               </div>
             ))}
           </div>
@@ -672,7 +584,7 @@ export default function HomePage() {
           {/* Security Dashboard Mockup */}
           <div className="mt-14 relative rounded-2xl border border-[#00B8FF]/15 overflow-hidden bg-[#0A1628]/60 group">
             <div className="absolute inset-0 bg-gradient-to-br from-[#00B8FF]/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-            <div className="relative p-4">
+            {/* <div className="relative p-4">
               <Image
                 src="/security-dashboard.png"
                 alt="OmniPriv security monitoring dashboard with session activity, threat maps, and compliance scores"
@@ -680,7 +592,7 @@ export default function HomePage() {
                 height={600}
                 className="w-full h-auto rounded-xl"
               />
-            </div>
+            </div> */}
             <div className="px-6 pb-6 text-center">
               <h3
                 className="text-lg font-bold text-white mb-2"
@@ -717,18 +629,25 @@ export default function HomePage() {
 
           <div className="grid md:grid-cols-3 gap-8 relative">
             {/* Connector line */}
-            <div className="absolute top-10 left-1/4 right-1/4 h-px bg-gradient-to-r from-[#00B8FF]/30 to-[#00B8FF]/10 hidden md:block" />
+            <div className="absolute top-10 left-1/4 right-1/4 h-px bg-gradient-to-r from-[#00B8FF]/40 via-violet-400/30 to-[#00B8FF]/10 hidden md:block" />
 
             {steps.map((step, i) => (
               <div
                 key={step.step}
-                className="relative p-8 rounded-2xl border border-white/[0.06] bg-[#0A1628]/60 hover:border-[#00B8FF]/20 transition-all duration-300 group"
+                className="relative p-8 rounded-2xl border border-white/[0.07] bg-gradient-to-b from-[#0A1628]/80 to-[#060d1f]/60 hover:border-[#00B8FF]/25 transition-all duration-300 group overflow-hidden"
                 style={{ animationDelay: `${i * 150}ms` }}
               >
+                <div className="absolute inset-0 bg-gradient-to-br from-[#00B8FF]/[0.03] to-violet-500/[0.03] opacity-0 group-hover:opacity-100 transition-opacity" />
                 {/* Step number */}
                 <div
-                  className="text-6xl font-extrabold text-[#00B8FF]/10 mb-5 leading-none select-none"
-                  style={{ fontFamily: "var(--font-syne)" }}
+                  className="text-6xl font-extrabold leading-none select-none mb-5"
+                  style={{
+                    fontFamily: "var(--font-syne)",
+                    background: "linear-gradient(135deg, rgba(56,189,248,0.25) 0%, rgba(139,92,246,0.15) 100%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                  }}
                 >
                   {step.step}
                 </div>
@@ -749,7 +668,7 @@ export default function HomePage() {
           </div>
 
           <div className="text-center mt-12">
-            <Link href="/demo" className="btn-primary text-base px-8 py-3.5">
+            <Link href="/features" className="btn-primary text-base px-8 py-3.5">
               Explore the Platform
               <ArrowRight className="w-5 h-5" />
             </Link>
@@ -758,7 +677,7 @@ export default function HomePage() {
           {/* Zero-Trust Flow Diagram */}
           <div className="mt-16 relative rounded-2xl border border-[#00B8FF]/15 overflow-hidden bg-[#0A1628]/60 group">
             <div className="absolute inset-0 bg-gradient-to-br from-[#00B8FF]/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-            <div className="relative p-4">
+            {/* <div className="relative p-4">
               <Image
                 src="/zero-trust-flow.png"
                 alt="OmniPriv zero-trust privileged access flow — from identity verification through policy check, access grant, to session monitoring"
@@ -766,7 +685,7 @@ export default function HomePage() {
                 height={400}
                 className="w-full h-auto rounded-xl"
               />
-            </div>
+            </div> */}
             <div className="px-6 pb-6 text-center">
               <h3
                 className="text-lg font-bold text-white mb-2"
@@ -867,8 +786,11 @@ export default function HomePage() {
             {testimonials.map((t) => (
               <div
                 key={t.author}
-                className="relative p-8 rounded-2xl border border-white/[0.07] bg-[#0A1628]/50 hover:border-white/[0.13] transition-all duration-300 flex flex-col"
+                className="relative p-8 rounded-2xl border border-white/[0.07] bg-gradient-to-b from-[#0A1628]/60 to-[#060d1f]/60 hover:border-white/[0.14] hover:shadow-[0_8px_32px_rgba(0,0,0,0.4)] transition-all duration-300 flex flex-col group overflow-hidden"
               >
+                <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#00B8FF]/20 to-transparent group-hover:via-[#00B8FF]/50 transition-all duration-300" />
+                {/* Decorative quote */}
+                <div className="absolute top-4 right-6 text-7xl font-serif leading-none text-[#00B8FF]/[0.07] select-none pointer-events-none group-hover:text-[#00B8FF]/[0.12] transition-colors">&ldquo;</div>
                 {/* Rating */}
                 <div className="flex items-center gap-0.5 mb-5">
                   {Array.from({ length: t.rating }).map((_, i) => (
@@ -879,7 +801,7 @@ export default function HomePage() {
                   &ldquo;{t.quote}&rdquo;
                 </p>
                 <div className="flex items-center gap-3 border-t border-white/[0.06] pt-5">
-                  <div className="w-10 h-10 rounded-full overflow-hidden ring-1 ring-white/10 flex-shrink-0">
+                  <div className="w-10 h-10 rounded-full overflow-hidden ring-2 ring-[#00B8FF]/20 flex-shrink-0">
                     <Image src={t.avatar} alt={t.author} width={40} height={40} className="w-full h-full object-cover" />
                   </div>
                   <div>
@@ -964,11 +886,15 @@ export default function HomePage() {
         <div className="container-xl">
           <div className="relative rounded-3xl overflow-hidden border border-[#00B8FF]/15">
             {/* Background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#0A1628] via-[#0d1d38] to-[#0A1628]" />
-            <div className="absolute inset-0 bg-grid opacity-30" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#0a1628] via-[#0f0d2e] to-[#0A1628]" />
+            <div className="absolute inset-0 bg-grid opacity-25" />
             <div
-              className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] opacity-20"
-              style={{ background: "radial-gradient(ellipse, #00B8FF 0%, transparent 60%)" }}
+              className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] opacity-25"
+              style={{ background: "radial-gradient(ellipse, rgba(0,184,255,0.6) 0%, transparent 60%)" }}
+            />
+            <div
+              className="absolute bottom-0 right-0 w-[500px] h-[350px] opacity-15"
+              style={{ background: "radial-gradient(ellipse at bottom right, rgba(124,58,237,0.8) 0%, transparent 60%)" }}
             />
 
             {/* Content */}
@@ -999,9 +925,9 @@ export default function HomePage() {
                   Request a Personalized Demo
                   <ArrowRight className="w-5 h-5" />
                 </Link>
-                <Link href="/enterprise" className="btn-secondary text-base px-10 py-4">
-                  View Enterprise Plans
-                </Link>
+                <a href="mailto:info@omnipriv.com" className="btn-secondary text-base px-10 py-4">
+                  Contact Sales
+                </a>
               </div>
 
               {/* Trust signals */}

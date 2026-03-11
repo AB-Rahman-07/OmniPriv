@@ -1,7 +1,14 @@
 "use client";
 
+import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import Link from "next/link";
 import { ArrowRight, Clock, Calendar, ChevronRight } from "lucide-react";
+import {
+  EMAILJS_PUBLIC_KEY,
+  EMAILJS_SERVICE_ID,
+  EMAILJS_NEWSLETTER_TEMPLATE_ID,
+} from "@/lib/emailjs";
 
 const categories = ["All", "Best Practices", "Security Research", "Case Studies", "Product Updates", "Compliance", "DevSecOps"];
 
@@ -133,10 +140,30 @@ function getTagColor(tag: string) {
 }
 
 export default function BlogPage() {
+  const [newsletterEmail, setNewsletterEmail] = useState("");
+  const [newsletterStatus, setNewsletterStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  async function handleNewsletter(e: React.FormEvent) {
+    e.preventDefault();
+    setNewsletterStatus("loading");
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_NEWSLETTER_TEMPLATE_ID,
+        { subscriber_email: newsletterEmail },
+        EMAILJS_PUBLIC_KEY,
+      );
+      setNewsletterStatus("success");
+      setNewsletterEmail("");
+    } catch {
+      setNewsletterStatus("error");
+    }
+  }
+
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-16 border-b border-white/[0.04] overflow-hidden">
+      <section className="relative pt-16 pb-16 border-b border-white/[0.04] overflow-hidden">
         <div className="absolute inset-0 bg-grid opacity-50" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#030711]" />
         <div className="container-xl relative z-10 text-center">
@@ -283,17 +310,35 @@ export default function BlogPage() {
             <p className="text-slate-400 mb-7">
               Weekly security insights, PAM best practices, and OmniPriv product updates. No spam, unsubscribe anytime.
             </p>
-            <form className="flex gap-3 max-w-md mx-auto" onSubmit={(e) => e.preventDefault()}>
-              <input
-                type="email"
-                placeholder="Work email address"
-                className="input-dark flex-1"
-              />
-              <button type="submit" className="btn-primary whitespace-nowrap">
-                Subscribe
-              </button>
-            </form>
-            <p className="text-xs text-slate-600 mt-3">~4,200 security professionals subscribed</p>
+            {newsletterStatus === "success" ? (
+              <div className="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-[#00B8FF]/25 bg-[#00B8FF]/[0.08] text-[#00B8FF] text-sm font-medium">
+                ✓ You&apos;re subscribed! Welcome aboard.
+              </div>
+            ) : (
+              <>
+                <form className="flex gap-3 max-w-md mx-auto" onSubmit={handleNewsletter}>
+                  <input
+                    type="email"
+                    required
+                    placeholder="Work email address"
+                    value={newsletterEmail}
+                    onChange={(e) => setNewsletterEmail(e.target.value)}
+                    className="input-dark flex-1"
+                  />
+                  <button
+                    type="submit"
+                    disabled={newsletterStatus === "loading"}
+                    className="btn-primary whitespace-nowrap disabled:opacity-60"
+                  >
+                    {newsletterStatus === "loading" ? "Subscribing..." : "Subscribe"}
+                  </button>
+                </form>
+                {newsletterStatus === "error" && (
+                  <p className="text-xs text-red-400 mt-2">Something went wrong. Please try again.</p>
+                )}
+                <p className="text-xs text-slate-600 mt-3">~4,200 security professionals subscribed</p>
+              </>
+            )}
           </div>
         </div>
       </section>

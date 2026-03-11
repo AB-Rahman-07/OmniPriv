@@ -39,7 +39,7 @@ export default async function SolutionPage({
     return (
         <>
             {/* Hero */}
-            <section className="relative pt-32 pb-20 border-b border-white/[0.04] overflow-hidden">
+            <section className="relative pt-16 pb-20 border-b border-white/[0.04] overflow-hidden">
                 <div className="absolute inset-0 bg-grid opacity-50" />
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#030711]" />
                 <div className="container-xl relative z-10">

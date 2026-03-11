@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — OmniPriv",
+  title: "Privacy Policy | OmniPriv",
   description: "Learn how OmniPriv collects, uses, and protects your personal information.",
 };
 
@@ -152,7 +152,7 @@ export default function PrivacyPolicyPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-16 border-b border-white/[0.04]">
+      <section className="relative pt-16 pb-16 border-b border-white/[0.04]">
         <div className="container-xl max-w-3xl mx-auto">
           <div className="badge-cyan mb-5">Legal</div>
           <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-5" style={{ fontFamily: "var(--font-syne)" }}>

@@ -1,11 +1,17 @@
 "use client";
 
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import Link from "next/link";
 import {
   Shield, Clock, Users, CheckCircle2, Star,
   ArrowRight, Phone, Mail, Linkedin, Twitter,
 } from "lucide-react";
+import {
+  EMAILJS_PUBLIC_KEY,
+  EMAILJS_SERVICE_ID,
+  EMAILJS_DEMO_TEMPLATE_ID,
+} from "@/lib/emailjs";
 
 const companySizes = [
   "1–50 employees",
@@ -72,6 +78,7 @@ export default function DemoPage() {
   });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
     const { name, value, type } = e.target;
@@ -82,15 +89,35 @@ export default function DemoPage() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 1200));
-    setLoading(false);
-    setSubmitted(true);
+    setError("");
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_DEMO_TEMPLATE_ID,
+        {
+          from_name: `${formData.firstName} ${formData.lastName}`.trim(),
+          from_email: formData.workEmail,
+          phone: formData.phone,
+          company: formData.company,
+          job_title: formData.jobTitle,
+          company_size: formData.companySize,
+          use_case: formData.useCase,
+          message: formData.message || "No additional context provided.",
+        },
+        EMAILJS_PUBLIC_KEY,
+      );
+      setSubmitted(true);
+    } catch {
+      setError("Something went wrong. Please try again or email us at info@omnipriv.com");
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-16 border-b border-white/[0.04] overflow-hidden">
+      <section className="relative pt-16 pb-16 border-b border-white/[0.04] overflow-hidden">
         <div className="absolute inset-0 bg-grid opacity-40" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#030711]" />
         <div className="container-xl relative z-10 text-center max-w-3xl mx-auto">
@@ -294,6 +321,12 @@ export default function DemoPage() {
                     <p className="text-xs text-slate-500 text-center">
                       No credit card required &bull; No commitment &bull; Respond within 1 business day
                     </p>
+
+                    {error && (
+                      <p className="text-sm text-red-400 text-center border border-red-500/20 bg-red-500/10 rounded-xl px-4 py-3">
+                        {error}
+                      </p>
+                    )}
                   </form>
                 </div>
               )}
@@ -303,7 +336,7 @@ export default function DemoPage() {
             <div className="lg:col-span-2 space-y-8">
 
               {/* Trust stats */}
-              <div className="p-6 rounded-2xl border border-white/[0.06] bg-[#0A1628]/60">
+              {/* <div className="p-6 rounded-2xl border border-white/[0.06] bg-[#0A1628]/60">
                 <h3 className="text-sm font-bold text-white mb-5 uppercase tracking-wider" style={{ fontFamily: "var(--font-syne)" }}>Trusted By Security Leaders</h3>
                 <div className="grid grid-cols-2 gap-4">
                   {trustStats.map((t) => (
@@ -316,7 +349,7 @@ export default function DemoPage() {
                     </div>
                   ))}
                 </div>
-              </div>
+              </div> */}
 
               {/* What to Expect */}
               <div>

@@ -3,9 +3,9 @@ import Link from "next/link";
 import { ArrowRight, Plug, CheckCircle2 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Integrations — Connect OmniPriv to Your Stack",
+  title: "Integrations: Connect OmniPriv to Your Stack",
   description:
-    "OmniPriv integrates with 250+ enterprise tools — from identity providers and SIEM platforms to cloud services and ITSM systems — so privileged access management fits naturally into your existing workflows.",
+    "OmniPriv integrates with 250+ enterprise tools, from identity providers and SIEM platforms to cloud services and ITSM systems, so privileged access management fits naturally into your existing workflows.",
 };
 
 type Integration = {
@@ -110,7 +110,7 @@ export default function IntegrationsPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-20 border-b border-white/[0.04] overflow-hidden">
+      <section className="relative pt-16 pb-20 border-b border-white/[0.04] overflow-hidden">
         <div className="absolute inset-0 bg-grid opacity-50" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#030711]" />
         <div className="container-xl relative z-10 text-center max-w-3xl mx-auto">

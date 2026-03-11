@@ -1,11 +1,9 @@
-"use client";
-
-import { useState } from "react";
 import Link from "next/link";
 import {
-  ArrowRight, Search, BookOpen, Code, Server, Zap, Shield,
+  ArrowRight, BookOpen, Code, Server, Zap, Shield,
   ChevronRight, FileText, Database, Network, Cpu, Lock, Globe,
   Play, Terminal, Settings, Users,
+  Icon,
 } from "lucide-react";
 
 const docCategories = [
@@ -82,7 +80,7 @@ const docCategories = [
   {
     icon: Server,
     title: "Deployment",
-    description: "Deployment guides for every topology — from single node to global HA cluster.",
+    description: "Deployment guides for every topology, from single node to global HA cluster.",
     articles: [
       { title: "High-Availability Cluster Setup", href: "/docs/deploy/ha" },
       { title: "Docker & Kubernetes Deployment", href: "/docs/deploy/k8s" },
@@ -112,12 +110,10 @@ const quickLinks = [
 ];
 
 export default function DocsPage() {
-  const [searchQuery, setSearchQuery] = useState("");
-
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-16 border-b border-white/[0.04] overflow-hidden">
+      <section className="relative pt-16 pb-16 border-b border-white/[0.04] overflow-hidden">
         <div className="absolute inset-0 bg-grid opacity-50" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#030711]" />
         <div className="container-xl relative z-10 text-center">
@@ -129,28 +125,7 @@ export default function DocsPage() {
             Everything you need to deploy, configure, and operate OmniPriv in your enterprise environment.
           </p>
 
-          {/* Search */}
-          <div className="relative max-w-2xl mx-auto">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500" />
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search documentation..."
-              className="input-dark pl-12 pr-4 py-4 text-base rounded-xl border-white/[0.1] focus:border-[#00B8FF]/50"
-              style={{ fontSize: "1rem" }}
-            />
-            {searchQuery && (
-              <div className="absolute top-full left-0 right-0 mt-2 p-4 bg-[#0A1628] border border-white/[0.08] rounded-xl shadow-2xl text-sm text-slate-400 text-left">
-                Search results for &quot;{searchQuery}&quot; would appear here.
-                <div className="mt-2">
-                  <a href="mailto:support@OmniPriv.com" className="text-[#00B8FF] hover:underline">
-                    Can&apos;t find what you&apos;re looking for? Contact support →
-                  </a>
-                </div>
-              </div>
-            )}
-          </div>
+
         </div>
       </section>
 
@@ -159,14 +134,10 @@ export default function DocsPage() {
         <div className="container-xl">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {quickLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="flex items-center gap-3 p-4 rounded-xl border border-white/[0.06] bg-[#0A1628]/60 hover:border-[#00B8FF]/25 hover:bg-[#0A1628]/90 transition-all group"
-              >
-                <link.icon className="w-4 h-4 text-[#00B8FF] flex-shrink-0" />
+              
+
                 <span className="text-sm font-medium text-slate-300 group-hover:text-white transition-colors">{link.label}</span>
-              </Link>
+              
             ))}
           </div>
         </div>
@@ -189,13 +160,13 @@ export default function DocsPage() {
                 <ul className="space-y-2.5">
                   {cat.articles.map((article) => (
                     <li key={article.title}>
-                      <Link
+                      {/* <Link
                         href={article.href}
                         className="flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors group/link"
-                      >
+                      > */}
                         <ChevronRight className="w-3 h-3 text-[#00B8FF]/50 group-hover/link:text-[#00B8FF] transition-colors flex-shrink-0" />
                         {article.title}
-                      </Link>
+                      {/* </Link> */}
                     </li>
                   ))}
                 </ul>
@@ -212,9 +183,9 @@ export default function DocsPage() {
             <h2 className="text-2xl font-extrabold text-white" style={{ fontFamily: "var(--font-syne)" }}>
               Most Popular Articles
             </h2>
-            <Link href="/docs/all" className="text-sm text-[#00B8FF] hover:underline flex items-center gap-1">
+            {/* <Link href="/docs/all" className="text-sm text-[#00B8FF] hover:underline flex items-center gap-1">
               View all docs <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
+            </Link> */}
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {popularDocs.map((doc) => (

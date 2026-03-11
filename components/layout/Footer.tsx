@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Mail, Phone, MapPin, Linkedin, Twitter, Youtube, ArrowRight } from "lucide-react";
+import { Mail, MapPin, Linkedin, Twitter, Youtube, ArrowRight } from "lucide-react";
 
 const productLinks = [
   { label: "Infrastructure Deployment", href: "/platform/infrastructure-deployment" },
@@ -24,20 +24,9 @@ const resourceLinks = [
 
 const companyLinks = [
   { label: "About OmniPriv", href: "/about" },
-  { label: "Enterprise Plans", href: "/enterprise" },
-  { label: "Request a Demo", href: "/demo" },
   { label: "Contact Sales", href: "/demo" },
   { label: "Privacy Policy", href: "/privacy-policy" },
   { label: "Terms of Service", href: "/terms" },
-];
-
-const certBadges = [
-  "SOC 2 Type II",
-  "ISO 27001",
-  "GDPR",
-  "HIPAA",
-  "PCI-DSS",
-  "FedRAMP Ready",
 ];
 
 export default function Footer() {
@@ -103,6 +92,8 @@ export default function Footer() {
                   key={label}
                   href={href}
                   aria-label={label}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-9 h-9 rounded-lg border border-white/[0.08] hover:border-[#00B8FF]/40 flex items-center justify-center text-slate-400 hover:text-[#00B8FF] transition-all duration-200 hover:bg-[#00B8FF]/[0.08]"
                 >
                   <Icon className="w-4 h-4" />
@@ -111,21 +102,32 @@ export default function Footer() {
             </div>
 
             {/* Contact info */}
-            <div className="space-y-2.5">
-              {[
-                { Icon: Mail, text: "sales@OmniPriv.com", href: "mailto:sales@OmniPriv.com" },
-                { Icon: Phone, text: "+1 (800) 555-0199", href: "tel:+18005550199" },
-                { Icon: MapPin, text: "San Francisco, CA", href: "#" },
-              ].map(({ Icon, text, href }) => (
-                <a
-                  key={text}
-                  href={href}
-                  className="flex items-center gap-2.5 text-sm text-slate-400 hover:text-[#00B8FF] transition-colors group/contact"
-                >
-                  <Icon className="w-3.5 h-3.5 text-[#00B8FF]/60 group-hover/contact:text-[#00B8FF] transition-colors flex-shrink-0" />
-                  {text}
-                </a>
-              ))}
+            <div className="space-y-4">
+              <a
+                href="mailto:info@omnipriv.com"
+                className="flex items-center gap-2.5 text-sm text-slate-400 hover:text-[#00B8FF] transition-colors group/contact"
+              >
+                <Mail className="w-3.5 h-3.5 text-[#00B8FF]/60 group-hover/contact:text-[#00B8FF] transition-colors flex-shrink-0" />
+                info@omnipriv.com
+              </a>
+              <div className="flex items-start gap-2.5 text-sm text-slate-400">
+                <MapPin className="w-3.5 h-3.5 text-[#00B8FF]/60 transition-colors flex-shrink-0 mt-0.5" />
+                <div>
+                  <div className="text-white/70 font-medium text-xs mb-0.5">Omnipriv Global</div>
+                  <div>10 Mead Road, Abbeymead</div>
+                  <div>Gloucester, GL4 5GL</div>
+                  <div>United Kingdom</div>
+                </div>
+              </div>
+              <div className="flex items-start gap-2.5 text-sm text-slate-400">
+                <MapPin className="w-3.5 h-3.5 text-[#00B8FF]/60 transition-colors flex-shrink-0 mt-0.5" />
+                <div>
+                  <div className="text-white/70 font-medium text-xs mb-0.5">Omnipriv Middle East</div>
+                  <div>Compass Building</div>
+                  <div>AL Hamra Industrial Zone-FZ</div>
+                  <div>Ras Al Khaimah, UAE</div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -192,22 +194,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Compliance badges */}
-        <div className="mt-14 pt-8 border-t border-white/[0.05]">
-          <p className="text-xs text-slate-500 uppercase tracking-wider font-medium mb-4">
-            Certifications & Compliance
-          </p>
-          <div className="flex flex-wrap gap-2">
-            {certBadges.map((badge) => (
-              <span
-                key={badge}
-                className="px-3 py-1.5 bg-[#00B8FF]/[0.07] border border-[#00B8FF]/15 rounded-full text-xs font-semibold text-[#00B8FF]/80"
-              >
-                {badge}
-              </span>
-            ))}
-          </div>
-        </div>
 
         {/* CTA Banner */}
         <div className="mt-10 p-6 rounded-2xl border border-[#00B8FF]/15 bg-gradient-to-r from-[#00B8FF]/[0.06] to-[#0060FF]/[0.04] flex flex-col md:flex-row items-center justify-between gap-4">
@@ -219,12 +205,12 @@ export default function Footer() {
               Talk to our PAM experts and get a personalized demo.
             </p>
           </div>
-          <Link
-            href="/demo"
+          <a
+            href="mailto:info@omnipriv.com"
             className="btn-primary whitespace-nowrap flex-shrink-0"
           >
-            Request a Demo <ArrowRight className="w-4 h-4" />
-          </Link>
+            Contact Sales <ArrowRight className="w-4 h-4" />
+          </a>
         </div>
       </div>
 

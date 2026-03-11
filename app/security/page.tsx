@@ -7,7 +7,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Security — Zero-Trust Architecture & Compliance",
+  title: "Security: Zero-Trust Architecture & Compliance",
   description:
     "OmniPriv is built on zero-trust principles with AES-256 encryption, immutable audit logs, and comprehensive compliance certifications including SOC2, ISO 27001, HIPAA, and PCI-DSS.",
 };
@@ -17,7 +17,7 @@ const securityPrinciples = [
     icon: Shield,
     title: "Zero-Trust Architecture",
     description:
-      "OmniPriv implements zero-trust at every layer. No user, device, or network is inherently trusted. Every access request is authenticated, authorized, and logged — regardless of origin.",
+      "OmniPriv implements zero-trust at every layer. No user, device, or network is inherently trusted. Every access request is authenticated, authorized, and logged, regardless of origin.",
     details: [
       "Verify every identity before granting access",
       "Enforce least-privilege on every session",
@@ -29,7 +29,7 @@ const securityPrinciples = [
     icon: Lock,
     title: "End-to-End Encryption",
     description:
-      "All data in transit is encrypted with TLS 1.3. All stored data — credentials, session recordings, audit logs — is encrypted at rest with AES-256-GCM. Encryption keys are managed with FIPS 140-2 Level 2 compliant HSMs.",
+      "All data in transit is encrypted with TLS 1.3. All stored data (credentials, session recordings, audit logs) is encrypted at rest with AES-256-GCM. Encryption keys are managed with FIPS 140-2 Level 2 compliant HSMs.",
     details: [
       "TLS 1.3 for all transport layer communications",
       "AES-256-GCM for data at rest",
@@ -53,7 +53,7 @@ const securityPrinciples = [
     icon: Eye,
     title: "Immutable Audit Trail",
     description:
-      "Every privileged action produces a tamper-proof record. Cryptographically signed logs cannot be modified or deleted — even by administrators. This provides irrefutable evidence for forensic investigations and compliance audits.",
+      "Every privileged action produces a tamper-proof record. Cryptographically signed logs cannot be modified or deleted, even by administrators. This provides irrefutable evidence for forensic investigations and compliance audits.",
     details: [
       "Cryptographic signing of all session logs",
       "Write-once storage for audit records",
@@ -72,12 +72,12 @@ const securityFeatures = [
   {
     icon: AlertTriangle,
     title: "Anomaly Detection",
-    description: "Machine learning-based behavioral analysis detects unusual command patterns, access times, or data volumes — triggering automated alerts and session termination.",
+    description: "Machine learning-based behavioral analysis detects unusual command patterns, access times, or data volumes, triggering automated alerts and session termination.",
   },
   {
     icon: RefreshCw,
     title: "Automated Secret Rotation",
-    description: "Eliminate long-lived credentials. OmniPriv rotates passwords, SSH keys, and API tokens automatically — on schedule or post-session.",
+    description: "Eliminate long-lived credentials. OmniPriv rotates passwords, SSH keys, and API tokens automatically, on schedule or post-session.",
   },
   {
     icon: Layers,
@@ -177,7 +177,7 @@ export default function SecurityPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-20 border-b border-white/[0.04] overflow-hidden">
+      <section className="relative pt-16 pb-20 border-b border-white/[0.04] overflow-hidden">
         <div className="absolute inset-0 bg-grid opacity-50" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#030711]" />
         <div className="container-xl relative z-10 text-center">
@@ -186,7 +186,7 @@ export default function SecurityPage() {
             Security is Our <span className="text-gradient">Foundation</span>
           </h1>
           <p className="text-xl text-slate-400 max-w-2xl mx-auto mb-10">
-            OmniPriv is built with security at its core — from zero-trust architecture and end-to-end encryption to independent penetration testing and comprehensive compliance certifications.
+            OmniPriv is built with security at its core, from zero-trust architecture and end-to-end encryption to independent penetration testing and comprehensive compliance certifications.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link href="/demo" className="btn-primary text-base px-8 py-3.5">
@@ -269,7 +269,7 @@ export default function SecurityPage() {
               Independently Verified Compliance
             </h2>
             <p className="text-slate-400 text-lg">
-              Our certifications aren't marketing — they're independently audited, annually renewed proof of our security posture.
+              Our certifications aren't marketing; they're independently audited, annually renewed proof of our security posture.
             </p>
           </div>
 
@@ -301,7 +301,7 @@ export default function SecurityPage() {
                 Penetration Testing & <span className="text-gradient">Vulnerability Research</span>
               </h2>
               <p className="text-slate-400 leading-relaxed">
-                Security cannot be assumed — it must be continuously verified. OmniPriv undergoes rigorous, independent security testing including white-box penetration testing, red team exercises, and bug bounty programs with the world's leading security researchers.
+                Security cannot be assumed; it must be continuously verified. OmniPriv undergoes rigorous, independent security testing including white-box penetration testing, red team exercises, and bug bounty programs with the world's leading security researchers.
               </p>
             </div>
             <div className="space-y-3">

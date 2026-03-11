@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
-  UserCheck, Lock, Key, Eye, CheckCircle2, ArrowRight,
+  UserCheck, Lock, Key, Eye, ArrowRight,
   Shield, Fingerprint, Wifi, RefreshCw, Database, Server,
   Monitor, Globe, Layers, Clock, Workflow, BarChart3,
   FileSearch, Network, AlertTriangle, Zap, Cpu, Building2,
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Features — Complete PAM Capabilities",
+  title: "Features: Complete PAM Capabilities",
   description:
     "Explore OmniPriv's full feature set: Multi-factor authentication, RBAC, JIT access, credential vaulting, session recording, and compliance reporting for enterprise environments.",
 };
@@ -68,33 +68,6 @@ const protocolSupport = [
   { protocol: "GCP", category: "Cloud", color: "bg-red-500/10 border-red-500/20 text-red-300" },
 ];
 
-const comparisonRows = [
-  { feature: "Bastion Host / Jump Server", basic: true, standard: true, professional: true, enterprise: true },
-  { feature: "SSH / RDP / VNC Access", basic: true, standard: true, professional: true, enterprise: true },
-  { feature: "Database Proxy", basic: true, standard: true, professional: true, enterprise: true },
-  { feature: "Multi-Factor Authentication", basic: true, standard: true, professional: true, enterprise: true },
-  { feature: "Session Recording", basic: true, standard: true, professional: true, enterprise: true },
-  { feature: "LDAP / AD Integration", basic: "50 users", standard: true, professional: true, enterprise: true },
-  { feature: "Single Sign-On (SSO)", basic: false, standard: true, professional: true, enterprise: true },
-  { feature: "RBAC & Custom Roles", basic: false, standard: true, professional: true, enterprise: true },
-  { feature: "Just-In-Time Access", basic: false, standard: false, professional: true, enterprise: true },
-  { feature: "Credential Rotation", basic: false, standard: true, professional: true, enterprise: true },
-  { feature: "Multi-Tenant / Multi-Org", basic: false, standard: false, professional: true, enterprise: true },
-  { feature: "Kubernetes Access", basic: false, standard: true, professional: true, enterprise: true },
-  { feature: "Approval Workflows", basic: false, standard: false, professional: true, enterprise: true },
-  { feature: "SIEM Integration", basic: false, standard: false, professional: true, enterprise: true },
-  { feature: "High Availability Cluster", basic: false, standard: "Active-Standby", professional: "Active-Standby", enterprise: "Full HA" },
-  { feature: "Custom Branding & Theme", basic: false, standard: false, professional: true, enterprise: true },
-  { feature: "Dedicated Support SLA", basic: false, standard: false, professional: "Business hours", enterprise: "24/7 Priority" },
-  { feature: "Professional Services", basic: false, standard: false, professional: false, enterprise: true },
-];
-
-function CheckOrText({ value }: { value: boolean | string }) {
-  if (value === true) return <CheckCircle2 className="w-4 h-4 text-[#00B8FF] mx-auto" />;
-  if (value === false) return <span className="text-slate-600 text-lg mx-auto block text-center">—</span>;
-  return <span className="text-xs text-slate-400 text-center block">{value as string}</span>;
-}
-
 function FeatureSection({
   id, icon: Icon, title, subtitle, description, features, reverse = false,
 }: {
@@ -139,7 +112,7 @@ export default function FeaturesPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-20 border-b border-white/[0.04] overflow-hidden">
+      <section className="relative pt-16 pb-20 border-b border-white/[0.04] overflow-hidden">
         <div className="absolute inset-0 bg-grid opacity-50" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#030711]" />
         <div className="container-xl relative z-10 text-center">
@@ -216,8 +189,8 @@ export default function FeaturesPage() {
       <FeatureSection
         id="authentication"
         icon={UserCheck}
-        title="Authentication — Verify Every Identity"
-        subtitle="01 — Authentication"
+        title="Authentication: Verify Every Identity"
+        subtitle="01: Authentication"
         description="Block unauthorized access with enterprise-grade identity verification. OmniPriv integrates seamlessly with your existing identity infrastructure while adding layers of protection that prevent credential abuse, account takeovers, and unauthorized entry."
         features={authFeatures}
       />
@@ -226,8 +199,8 @@ export default function FeaturesPage() {
       <FeatureSection
         id="authorization"
         icon={Lock}
-        title="Authorization — Enforce Least Privilege"
-        subtitle="02 — Authorization"
+        title="Authorization: Enforce Least Privilege"
+        subtitle="02: Authorization"
         description="Prevent internal misuse and privilege escalation with granular access controls. Every access decision is policy-driven, time-limited, and fully logged — giving your security team complete control over who can do what, where, and when."
         features={authzFeatures}
         reverse
@@ -237,8 +210,8 @@ export default function FeaturesPage() {
       <FeatureSection
         id="account"
         icon={Key}
-        title="Account Management — Full Credential Lifecycle"
-        subtitle="03 — Account Management"
+        title="Account Management: Full Credential Lifecycle"
+        subtitle="03: Account Management"
         description="Eliminate the credential hygiene problem that plagues enterprise IT. OmniPriv automates every aspect of privileged account management — from discovery to rotation to deprovisioning — so your team focuses on security, not manual credential tasks."
         features={accountFeatures}
       />
@@ -247,59 +220,13 @@ export default function FeaturesPage() {
       <FeatureSection
         id="audit"
         icon={Eye}
-        title="Audit & Compliance — Full Traceability"
-        subtitle="04 — Audit & Compliance"
+        title="Audit & Compliance: Full Traceability"
+        subtitle="04: Audit & Compliance"
         description="Every privileged action leaves a permanent, tamper-proof record in OmniPriv. Compliance teams can generate audit reports in minutes, security teams can investigate incidents in real time, and executives get the visibility they need to manage risk."
         features={auditFeatures}
         reverse
       />
 
-      {/* Comparison Table */}
-      <section id="comparison" className="section-padding scroll-mt-24">
-        <div className="container-xl">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <div className="badge-cyan mb-5">Plan Comparison</div>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4" style={{ fontFamily: "var(--font-syne)" }}>
-              Find the Right Plan for Your Organization
-            </h2>
-            <p className="text-slate-400">
-              All plans are enterprise-grade. Contact our team for custom pricing tailored to your infrastructure.
-            </p>
-          </div>
-
-          <div className="rounded-2xl border border-white/[0.07] overflow-hidden overflow-x-auto">
-            <table className="comparison-table">
-              <thead>
-                <tr>
-                  <th className="w-1/3 text-left">Feature</th>
-                  {["Basic", "Standard", "Professional", "Enterprise"].map((plan) => (
-                    <th key={plan} className="text-center">
-                      <div className="text-[#00B8FF]">{plan}</div>
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {comparisonRows.map((row) => (
-                  <tr key={row.feature}>
-                    <td className="font-medium text-slate-300">{row.feature}</td>
-                    <td className="text-center"><CheckOrText value={row.basic} /></td>
-                    <td className="text-center"><CheckOrText value={row.standard} /></td>
-                    <td className="text-center"><CheckOrText value={row.professional} /></td>
-                    <td className="text-center"><CheckOrText value={row.enterprise} /></td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          <div className="text-center mt-8">
-            <Link href="/demo" className="btn-primary text-base px-8 py-3.5">
-              Contact Us for Custom Pricing <ArrowRight className="w-5 h-5" />
-            </Link>
-          </div>
-        </div>
-      </section>
-    </>
+    </>  
   );
 }

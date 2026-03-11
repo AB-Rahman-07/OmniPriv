@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowRight, TrendingDown, Clock, ShieldCheck, ChevronRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Case Studies — Real Results from Real Enterprises",
+  title: "Case Studies: Real Results from Real Enterprises",
   description:
     "Explore how OmniPriv helps Fortune 500 companies, financial institutions, healthcare systems, and government agencies eliminate privileged access risk and achieve compliance.",
 };
@@ -24,7 +24,7 @@ const featured = {
     { metric: "Zero", label: "Privilege-related incidents since deployment" },
     { metric: "60 days", label: "Time to full compliance posture" },
   ],
-  quote: "OmniPriv didn't just solve our privileged access problem — it transformed how we think about trust across our entire infrastructure. The regulators were impressed. Our board was relieved.",
+  quote: "OmniPriv didn't just solve our privileged access problem. It transformed how we think about trust across our entire infrastructure. The regulators were impressed. Our board was relieved.",
   attribution: "Chief Information Security Officer",
 };
 
@@ -99,7 +99,7 @@ export default function CaseStudiesPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-20 border-b border-white/[0.04] overflow-hidden">
+      <section className="relative pt-16 pb-20 border-b border-white/[0.04] overflow-hidden">
         <div className="absolute inset-0 bg-grid opacity-50" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#030711]" />
         <div className="container-xl relative z-10 text-center max-w-3xl mx-auto">

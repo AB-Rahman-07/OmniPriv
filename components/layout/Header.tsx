@@ -126,6 +126,12 @@ export default function Header() {
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-1">
+            <Link
+              href="/"
+              className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-slate-300 hover:text-white rounded-lg hover:bg-white/[0.05] transition-all duration-200"
+            >
+              Home
+            </Link>
             {/* Platform Dropdown */}
             <div className="nav-item relative group">
               <button className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-slate-300 hover:text-white rounded-lg hover:bg-white/[0.05] transition-all duration-200">
@@ -163,13 +169,6 @@ export default function Header() {
 
 
 
-            <Link
-              href="/enterprise"
-              className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-slate-300 hover:text-white rounded-lg hover:bg-white/[0.05] transition-all duration-200"
-            >
-              Enterprise
-            </Link>
-
             {/* Resources Dropdown */}
             <div className="nav-item relative group">
               <button className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-slate-300 hover:text-white rounded-lg hover:bg-white/[0.05] transition-all duration-200">
@@ -198,10 +197,17 @@ export default function Header() {
             >
               About
             </Link>
+            
           </nav>
 
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center gap-3">
+            <Link
+              href="/sign-in"
+              className="px-4 py-2.5 text-sm font-semibold text-slate-300 hover:text-white border border-white/[0.12] hover:border-white/25 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] transition-all duration-200"
+            >
+              Partner Portal
+            </Link>
             <Link
               href="/demo"
               className="btn-primary text-sm px-5 py-2.5 rounded-lg"
@@ -227,6 +233,9 @@ export default function Header() {
         <div className="lg:hidden fixed inset-0 top-[72px] bg-[#030711]/98 backdrop-blur-xl overflow-y-auto z-40">
           <div className="container-xl py-6 space-y-2">
             {/* Platform */}
+            <Link href="/" onClick={() => setMobileOpen(false)} className="block px-4 py-3 text-sm font-semibold text-white rounded-xl hover:bg-white/[0.05] transition-all">
+              Home
+            </Link>
             <button
               onClick={() => setMobileProduct(!mobileProduct)}
               className="w-full flex items-center justify-between px-4 py-3 text-sm font-semibold text-white rounded-xl hover:bg-white/[0.05] transition-all"
@@ -251,10 +260,6 @@ export default function Header() {
             )}
 
 
-
-            <Link href="/enterprise" onClick={() => setMobileOpen(false)} className="block px-4 py-3 text-sm font-semibold text-white rounded-xl hover:bg-white/[0.05] transition-all">
-              Enterprise
-            </Link>
 
             {/* Resources */}
             <button
@@ -283,8 +288,16 @@ export default function Header() {
             <Link href="/about" onClick={() => setMobileOpen(false)} className="block px-4 py-3 text-sm font-semibold text-white rounded-xl hover:bg-white/[0.05] transition-all">
               About
             </Link>
+            
 
-            <div className="pt-4 border-t border-white/[0.06]">
+            <div className="pt-4 border-t border-white/[0.06] space-y-3">
+              <Link
+                href="/sign-in"
+                onClick={() => setMobileOpen(false)}
+                className="block w-full text-center px-4 py-3 text-sm font-semibold text-slate-300 border border-white/[0.12] rounded-xl hover:bg-white/[0.05] transition-all"
+              >
+                Partner Portal
+              </Link>
               <Link
                 href="/demo"
                 onClick={() => setMobileOpen(false)}

@@ -30,7 +30,7 @@ const jetbrains = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://OmniPriv.com"),
   title: {
-    default: "OmniPriv — Enterprise Privileged Access Management (PAM)",
+    default: "OmniPriv: Enterprise Privileged Access Management (PAM)",
     template: "%s | OmniPriv",
   },
   description:
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://OmniPriv.com",
     siteName: "OmniPriv",
-    title: "OmniPriv — Enterprise Privileged Access Management",
+    title: "OmniPriv: Enterprise Privileged Access Management",
     description:
       "Secure every privileged session with OmniPriv's enterprise PAM platform. Bastion host, session auditing, credential vaulting, and zero-trust controls.",
     images: [
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "OmniPriv — Enterprise PAM",
+    title: "OmniPriv: Enterprise PAM",
     description:
       "Enterprise Privileged Access Management. Zero-trust. Always-on audit. Request a demo.",
     images: ["/og-image.png"],
@@ -84,7 +84,11 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true },
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/omnipriv-icon.svg", type: "image/svg+xml" },
+      { url: "/omnipriv-icon.png", type: "image/png" },
+    ],
     shortcut: "/favicon-16x16.png",
     apple: "/apple-touch-icon.png",
   },
@@ -121,7 +125,7 @@ export default function RootLayout({
       </head>
       <body className="bg-dark text-slate-200 antialiased" suppressHydrationWarning>
         <Header />
-        <main>{children}</main>
+        <main className="pt-[72px]">{children}</main>
         <Footer />
       </body>
     </html>
